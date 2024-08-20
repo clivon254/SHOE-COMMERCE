@@ -1,7 +1,7 @@
 
 import mongoose from "mongoose"
 
-const commentSchema = new mongoose.Schema({
+const ReveiwSchema = new mongoose.Schema({
 
     content:{type:String, required:true},
 
@@ -12,8 +12,8 @@ const commentSchema = new mongoose.Schema({
     {timestamps:true}
 )
 
-const Comment = mongoose.model('Comment', commentSchema)
+const Reveiw = mongoose.model('Reveiw', ReveiwSchema)
 
 
-export default Comment ;
+export default Reveiw ;
 
