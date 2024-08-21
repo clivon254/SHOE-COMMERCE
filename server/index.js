@@ -11,6 +11,7 @@ import userRoute from "./route/userRoute.js"
 import productRoute from "./route/productRoute.js"
 import cartRoute from "./route/cartRoute.js"
 import reveiwRoute from "./route/reveiwRoute.js"
+import orderRoute from "./route/orderRoute.js"
 
 
 const app = express()
@@ -43,6 +44,8 @@ app.use('/api/product', productRoute)
 app.use('/api/cart', cartRoute)
 
 app.use('/api/reveiw', reveiwRoute)
+
+app.use('/api/order', orderRoute)
 
 
 
