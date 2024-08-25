@@ -11,6 +11,8 @@ export default function DashSidebar() {
 
   const {currentUser} = useSelector(state => state.user)
 
+  const {theme} = useSelector(state => state.theme)
+
   const {handleSignOut} = useContext(StoreContext)
 
   return (

@@ -23,9 +23,14 @@
     @apply  text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide text-gray-600 dark:text-white capitalize mb-3 text-center
 }
 
+.active-link{
+
+    @apply relative text-blue-600 ease-in-out duration-500
+ 
+  }
+
 
 /* PRODUCT DETAILS IMAGES */
-
 .productCarousel.carousel-root {
     
     @apply flex  flex-col gap-3 
