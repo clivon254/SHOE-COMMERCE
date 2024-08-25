@@ -112,7 +112,7 @@ export default function ProductDetails() {
                   <img 
                     src={image}
                     alt={`image ${index + 1}`}
-                    className="" 
+                    className=" bg-black/10" 
                   />
 
                 ))}
@@ -287,8 +287,10 @@ export default function ProductDetails() {
           <div className="">
 
             <h2 className="text-3xl my-5 mb-10 font-semibold">Related products</h2>
+            
+           
 
-            <div className="relative mx-auto">
+            <div className="relative ">
 
               <Swiper
                   className="mySwiper"
@@ -320,7 +322,7 @@ export default function ProductDetails() {
                   prevEl:'.prev',
                   nextEl:'.next'
                   }}
-               >
+              >
                 {products?.map((product,index) => (
 
                   <SwiperSlide key={index}>
@@ -330,22 +332,23 @@ export default function ProductDetails() {
                   </SwiperSlide>
 
                 ))}
-               </Swiper>
+              </Swiper>
 
-               {/* navigation btns */}
-               <div className="next absolute z-50 -top-16 right-0 h-6 justify-center cursor-pointer">
+              {/* navigation btns */}
+              <div className="next absolute z-50 -top-16 right-0 h-6 justify-center cursor-pointer">
 
                   <FaChevronRight className="text-sm font-bold"/>
 
-               </div>
+              </div>
 
-               <div className="prev absolute z-50 -top-16 right-12 h-6 justify-center cursor-pointer">
+              <div className="prev absolute z-50 -top-16 right-12 h-6 justify-center cursor-pointer">
 
                   <FaChevronLeft className="text-sm font-bold"/>
 
-               </div>
+              </div>
 
             </div>
+
 
           </div>
 

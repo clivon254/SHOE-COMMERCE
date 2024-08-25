@@ -8,10 +8,10 @@ export default function ItemCard({product}) {
 
   return (
 
-    <div className="relative group border shadow-md flex flex-col gap-3 p-3 rounded-lg">
+    <div className="relative w-[250px] md:w-full group border shadow-md flex flex-col gap-3 p-3 rounded-lg">
         
         {/* image section */}
-        <div className="w-full h-[250px]">
+        <div className=" w-full h-[250px]">
 
             <Link to={`/productDetail/${product?._id}`} >
 

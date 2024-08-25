@@ -136,7 +136,7 @@ export default function ListOfProducts() {
 
                                 </Link>
 
-                                <Link to={`/productDetail/${product._id}`}>
+                                <Link to={`/edit-product/${product._id}`}>
 
                                   <FaEdit size={20} className="text-teal-500"/>
 
