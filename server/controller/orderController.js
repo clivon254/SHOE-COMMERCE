@@ -17,7 +17,6 @@ export const placeOrder = async (req,res,next) => {
             items:req.body.items,
             amount:req.body.amount,
             address:req.body.address,
-            phone:req.body.phone
         })
 
         await newOrder.save()
@@ -52,7 +51,7 @@ export const placeOrder = async (req,res,next) => {
 
         const token = req.token ;
 
-        const phone = req.body.phone.substring(1)
+        const phone = req.body.address.phone.substring(1)
 
         const date = new Date()
 

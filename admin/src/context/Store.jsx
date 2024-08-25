@@ -1,5 +1,5 @@
 
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios"
 import {} from "sonner"
 import { useDispatch } from "react-redux";
@@ -16,6 +16,11 @@ export default function StoreContextProvider(props)
 
     const dispatch = useDispatch()
 
+    const [products, setProducts] = useState([])
+
+    const [allProducts, setAllProducts] = useState([])
+
+    const [orders ,setOrders] = useState([])
 
     // handleSignOut
     const handleSignOut = async () => {
@@ -43,11 +48,73 @@ export default function StoreContextProvider(props)
         }
     }
 
-    useEffect(() => {})
+    // fetchProducts
+    const fetchProducts = async () => {
+
+        try
+        {
+            const res = await axios.get(url + "/api/product/get-products")
+
+            if(res.data.success)
+            {
+                setProducts(res.data.products)
+            }
+            else
+            {
+                console.log("check the api")
+            }
+
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+
+    }
+
+    // fetchOrder
+    const fetchOrders  = async () => {
+
+        try
+        {
+            const res = await axios.get(url + "/api/order/admin-order")
+
+            if(res.data.success)
+            {
+                setOrders(res.data.orders)
+            }
+            else
+            {
+                console.log("check the api")
+            }
+        }
+        catch(error)
+        {
+            console.log(error.message)
+        }
+
+    }
+    
+    useEffect(() => {
+
+        fetchProducts()
+
+        fetchOrders() 
+
+    })
+
+   
+
+    
     
     const contextValue = {
         url,
-        handleSignOut
+        handleSignOut,
+        products,
+        setProducts,
+        orders,
+        setOrders,
+        fetchOrders
     }
 
     return(

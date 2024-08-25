@@ -29,7 +29,7 @@ export default function Header() {
 
     <>
 
-      <Navbar className="border-b sticky top-0 z-50" >
+      <Navbar className="border-b sticky top-0 z-[100]" >
 
           <div className="">
             {

@@ -9,7 +9,7 @@ export const createReveiw = async (req,res,next) => {
     {
         const {content,productId,userId} = req.body ;
 
-        if(userId !== req.user.id)
+        if( req.user.id !== userId)
         {
             return next(errorHandler(403,'You are not allowed to Comment'))
         }

@@ -12,6 +12,7 @@ import Search from './pages/search'
 import { useSelector } from 'react-redux'
 import DashSidebar from './components/DashSidebar'
 import Header from './components/Header'
+import ProductDetails from './pages/ProductDetails'
 
 
 function Layout(){
@@ -76,7 +77,7 @@ export default function App() {
 
               <Route path="/search" element={<Search/>}/>
 
-              <Route path="/productDetail/:productId" element={<Dashboard/>}/>
+              <Route path="/productDetail/:productId" element={<ProductDetails/>}/>
 
             </Route>
 
