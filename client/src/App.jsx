@@ -12,6 +12,10 @@ import FooterComp from './components/FooterComp'
 import Search from './pages/search'
 import { Toaster } from 'sonner'
 import Profile from './pages/Profile'
+import ProductDetails from './pages/ProductDetails'
+import Cart from './pages/cart'
+import PlaceOrder from './pages/PlaceOrder'
+import Orders from './pages/orders'
 
 
 function LayOut()
@@ -51,13 +55,21 @@ export default function App() {
 
             <Route path="/" element={<Home/>}/>
 
+            <Route path="/cart" element={<Cart/>}/>
+
             <Route path="/about" element={<About/>}/>
+
+            <Route path="/order" element={<Orders/>}/>
 
             <Route path="/contact" element={<Contact/>}/>
 
             <Route path="/search" element={<Search/>}/>
 
             <Route path="/profile" element={<Profile/>}/>
+
+            <Route path="/place-order" element={<PlaceOrder/>}/>
+
+            <Route path="/productDetail/:productId" element={<ProductDetails/>}/>
 
           </Route>
 

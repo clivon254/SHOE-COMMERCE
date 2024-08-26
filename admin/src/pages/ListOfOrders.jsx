@@ -39,6 +39,7 @@ export default function ListOfOrders() {
                 (
                     <>
                         <Table hoverable className="shadow md">
+                            
                             <Table.Head>
 
                                 <Table.HeadCell>Order id</Table.HeadCell>

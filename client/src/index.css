@@ -20,7 +20,7 @@
 
 .subtitle
 {
-    @apply  text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide text-gray-600 dark:text-white capitalize mb-3 text-center
+    @apply  text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide text-gray-600 dark:text-white capitalize mb-3 
 }
 
 

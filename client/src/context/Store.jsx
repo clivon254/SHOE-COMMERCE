@@ -23,6 +23,126 @@ export default function StoreContextProvider(props)
 
     const [orders ,setOrders] = useState([])
 
+    const [cartItems, setCartItems] = useState([])
+
+    const [token ,setToken] = useState("")
+    
+    // getCart
+    const getCart = async () => {
+
+        try
+        {
+            const response = await axios.post(url + "/api/cart/get-cart")
+            
+            if(res.data.success)
+            {
+                setCartItems(response.data.cartData)
+            }
+
+        }
+        catch(error)
+        {
+            console.log(error.message)
+        }
+
+    }
+
+    // addToCart
+    const addToCart = async (itemId) => {
+
+    
+        try
+        {
+ 
+            const response = await axios.post(url + "/api/cart/add-to-cart",{itemId})
+
+            if(response.data.success)
+            {
+
+                if(!cartItems[itemId])
+                {
+                    setCartItems((prev) => ({...prev,[itemId]:1}))
+                }
+                else
+                {
+                    setCartItems(((prev) => ({...prev,[itemId]:prev[itemId] +1})))
+                }
+
+                toast.success("product added to cart")
+            }
+            else 
+            {}
+            
+        }
+        catch(error)
+        {
+            console.log(error.message)
+        }
+    }
+
+
+    // removeFromCart
+    const removeFromCart = async (itemId) => {
+
+        try
+        {
+
+            setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}))
+
+            if(token)
+            {
+                await axios.post(url + "/api/cart/remove-cart",
+                                    {itemId},
+                                  {headers:{token}}
+                            )
+            }
+        }
+        catch(error)
+        {
+            console.log(error.message)
+        }
+
+    }
+
+    // getCartAmount
+    const getCartAmount = async () => {
+
+        let totalAmount = 0 ;
+
+        for(const item in cartItems)
+        {
+            if(cartItems[item] > 0)
+            {
+                let itemInfo = products.find((product) => product._id === item)
+
+                if(itemInfo)
+                {
+                    totalAmount += itemInfo.discountedPrice ? (itemInfo.discountedPrice * cartItems[item]) : (itemInfo.regularPrice * cartItems[item])
+                }
+
+            }
+        }
+
+        return totalAmount ;
+    }
+
+    // getCartItems
+    const getCartItems = async () => {
+
+        let totalItems = 0 ;
+
+        for(const item in cartItems)
+        {
+            totalItems += cartItems[item]
+        }
+
+        return totalItems;
+    }
+
+    console.log(cartItems)
+    // console.log(getCartItems())
+    // console.log(getCartAmount())
+
     // handleSignOut
     const handleSignOut = async () => {
         
@@ -98,15 +218,26 @@ export default function StoreContextProvider(props)
     
     useEffect(() => {
 
-        fetchProducts()
+        async function loadData(){
 
-        fetchOrders() 
+            if(localStorage.getItem("token"))
+            {
+                setToken(localStorage.getItem("token"))
+
+                await getCart()
+            }
+
+            fetchProducts()
+
+            fetchOrders() 
+
+        }
+
+        loadData()
 
     })
 
    
-
-    
     
     const contextValue = {
         url,
@@ -115,7 +246,11 @@ export default function StoreContextProvider(props)
         setProducts,
         orders,
         setOrders,
-        fetchOrders
+        fetchOrders,
+        addToCart,
+        removeFromCart,
+        getCartAmount,
+        getCartItems
     }
 
     return(

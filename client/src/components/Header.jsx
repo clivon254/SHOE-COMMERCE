@@ -1,11 +1,11 @@
 
 
-import { Avatar, Button, Drawer, Dropdown, Navbar ,TextInput} from 'flowbite-react'
+import { Avatar, Badge, Button, Drawer, Dropdown, Navbar ,TextInput} from 'flowbite-react'
 import React, { useContext, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate ,NavLink} from 'react-router-dom'
 import { MdClose, MdMenu, MdSunny } from "react-icons/md"
-import { FaMoon, FaSun } from "react-icons/fa"
+import { FaMoon, FaShoppingCart, FaSun } from "react-icons/fa"
 import Logo from './Logo'
 import { toggleTheme } from '../redux/theme/themeSlice'
 import { StoreContext } from '../context/Store'
@@ -19,7 +19,7 @@ export default function Header() {
 
   const {currentUser} = useSelector(state => state.user)
 
-  const {handleSignOut} = useContext(StoreContext)
+  const {handleSignOut,getCartItems} = useContext(StoreContext)
 
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -100,7 +100,7 @@ export default function Header() {
           </div>
             
           {/* sign-in */}
-          <div className="flex items-center gap-x-2 md:order2">
+          <div className="flex items-center gap-x-4 md:order2">
             
             <Link to="/search">
 
@@ -115,6 +115,20 @@ export default function Header() {
                 </Button>
 
             </Link>
+
+            <div className="relative">
+              
+              <Link to="/cart">
+
+                 <FaShoppingCart size={25}/>
+
+                 <div className="rounded-full absolute -top-4 -right-3 w-6 h-6 bg-blue-600 flex items-center justify-center text-white">
+                  {0}
+                 </div>
+
+              </Link>
+
+            </div>
 
             <button 
               className="hidden w-10 h-10 md:flex items-center justify-center border rounded-full border-gray-300"
@@ -150,7 +164,13 @@ export default function Header() {
                             </Dropdown.Item>
                         </Link>
 
-                        <Dropdown.Item onClick={() => handleSignOut}>
+                        <Link to="/order">
+                            <Dropdown.Item>
+                            Orders
+                            </Dropdown.Item>
+                        </Link>
+
+                        <Dropdown.Item onClick={() => handleSignOut()}>
                             SignOut
                         </Dropdown.Item>
 
