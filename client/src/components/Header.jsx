@@ -36,7 +36,7 @@ export default function Header() {
 
     <>
 
-      <Navbar className="border-b sticky top-0 z-[100]" >
+      <Navbar className="border-b top-0 z-[100] py-3" >
         
           {/* togglebar */}
           <div className="md:hidden">
@@ -198,7 +198,7 @@ export default function Header() {
       <Drawer
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="md:hidden mt-6"
+        className="md:hidden "
       >
           <Drawer.Header titleIcon={() => <></>}/>
 

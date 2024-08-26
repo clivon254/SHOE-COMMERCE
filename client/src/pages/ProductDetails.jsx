@@ -290,8 +290,7 @@ export default function ProductDetails() {
           <div className="">
 
             <h2 className="text-3xl my-5 mb-10 font-semibold">Related products</h2>
-            
-           
+          
 
             <div className="relative ">
 
@@ -308,6 +307,10 @@ export default function ProductDetails() {
                   }
                   modules={[Autoplay,Navigation]}
                   breakpoints={{
+                      0: {
+                        slidesPerView: 2,
+                        spaceBetween:10
+                      },
                       640: {
                       slidesPerView:2 ,
                       spaceBetween: 20,

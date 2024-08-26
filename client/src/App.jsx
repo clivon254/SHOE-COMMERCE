@@ -26,7 +26,7 @@ function LayOut()
 
       <Header/>
 
-      <div className="min-h-screen w-full px-4 md:px-10 2xl:px-28">
+      <div className="min-h-screen">
 
          <Outlet/>
 
