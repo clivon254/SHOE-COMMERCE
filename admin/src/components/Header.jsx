@@ -96,7 +96,7 @@ export default function Header() {
                 </Dropdown.Item>
               </Link>
 
-              <Dropdown.Item onClick={() => handleSignOut}>
+              <Dropdown.Item onClick={() => handleSignOut()}>
                 SignOut
               </Dropdown.Item>
 

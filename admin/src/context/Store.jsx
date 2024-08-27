@@ -1,7 +1,7 @@
 
 import { createContext, useEffect, useState } from "react";
 import axios from "axios"
-import {} from "sonner"
+import {toast} from "sonner"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signOutSuccess } from "../redux/user/userSlice";
@@ -99,13 +99,9 @@ export default function StoreContextProvider(props)
 
         fetchProducts()
 
-        fetchOrders() 
+        fetchOrders()
 
     })
-
-   
-
-    
     
     const contextValue = {
         url,
@@ -113,8 +109,7 @@ export default function StoreContextProvider(props)
         products,
         setProducts,
         orders,
-        setOrders,
-        fetchOrders
+        setOrders
     }
 
     return(

@@ -139,9 +139,6 @@ export default function StoreContextProvider(props)
         return totalItems;
     }
 
-    console.log(cartItems)
-    // console.log(getCartItems())
-    // console.log(getCartAmount())
 
     // handleSignOut
     const handleSignOut = async () => {

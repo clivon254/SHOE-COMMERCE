@@ -21,34 +21,32 @@ function Layout(){
   const {currentUser} = useSelector((state) => state.user)
 
   return ( 
-    currentUser ? (
     
-      <div className="w-full flex">
+    currentUser ? 
+    
+    <div className="w-full flex">
 
-        <div className="hidden md:block w-1/4 h-screen border-r border-slate-300 top-0 left-0 sticky ">
-          
-          <DashSidebar />
+      <div className="hidden md:block w-1/4 h-screen border-r border-slate-300 top-0 left-0 sticky ">
+        
+        <DashSidebar />
 
-        </div>
+      </div>
 
-        <div className="w-full md:w-3/4">
+      <div className="w-full md:w-3/4">
 
-          <Header/>
+        <Header/>
 
-          <div className="">
+        <div className="">
 
-            <Outlet />
-
-          </div>
+          <Outlet />
 
         </div>
 
       </div>
-    )
+
+    </div>
     :
-    (
-      <Navigate to='/sign-in' state={{ from: location }} replace />
-    )
+    <Navigate to='/sign-in' />
   
   )
 }

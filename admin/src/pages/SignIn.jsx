@@ -53,7 +53,7 @@ export default function SignIn() {
             {
                 dispatch(signInSuccess(res.data.rest))
 
-                toast.success("signe in successfully")
+                toast.success("signed in successfully")
 
                 navigate('/')
             }
@@ -72,8 +72,6 @@ export default function SignIn() {
         }
 
     }
-
-    console.log(formData)
     
   return (
 

@@ -188,6 +188,9 @@ export default function Home() {
 
          </div>
 
+          {/* newsletter */}
+          <Newsletter/>
+
          {/* sponsors */}
         <div className="relative px-5 py-10 bg-slate-100">
 
@@ -246,11 +249,7 @@ export default function Home() {
               </Swiper>
 
         </div>
-
-        {/* newsletter */}
-        <Newsletter/>
         
-
       </div>
 
     </div>

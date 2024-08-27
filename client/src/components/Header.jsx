@@ -1,7 +1,7 @@
 
 
 import { Avatar, Badge, Button, Drawer, Dropdown, Navbar ,TextInput} from 'flowbite-react'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate ,NavLink} from 'react-router-dom'
 import { MdClose, MdMenu, MdSunny } from "react-icons/md"
@@ -30,7 +30,32 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   //   handleSubmit
-  const handleSubmit = () => {}
+  const handleSubmit = (e) => {
+
+    e.preventDefault()
+
+    const urlParams = new URLSearchParams(window.location.search)
+
+    urlParams.set('searchTerm', searchTerm)
+
+    const searchQuery = urlParams.toString()
+
+    navigate(`/search?${searchQuery}`)
+
+  }
+
+  useEffect(() => {
+
+    const urlParams = new URLSearchParams(location.search);
+
+    const searchTermFromUrl = urlParams.get('searchTerm')
+
+    if(searchTermFromUrl)
+    {
+      setSearchTerm(searchTermFromUrl)
+    }
+
+  },[location.search])
 
   return (
 

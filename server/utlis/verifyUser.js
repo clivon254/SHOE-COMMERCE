@@ -11,7 +11,7 @@ export const verifyToken = async (req,res,next) => {
 
     if(!token)
     {
-        return next(errorHandler(401, "Unauthorized"))
+        return next(errorHandler(403, "forbiden"))
     }
 
     jwt.verify(token, process.env.JWT_SECRETE ,(err,user) => {
