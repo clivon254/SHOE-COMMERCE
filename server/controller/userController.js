@@ -42,6 +42,7 @@ export const updateUser = async (req,res,next) => {
 
 }
 
+
 export const deleteUser = async (req,res,next) => {
 
     if( !req.user.isAdmin && req.user.id !== req.params.userId)
@@ -55,7 +56,7 @@ export const deleteUser = async (req,res,next) => {
 
         res.clearCookie('access_token')
 
-        res.status(200).json({success:true ,message:"User has been deleted successfully"})
+        res.status(200).json({success:true ,message:"User has been deleted successfully been "})
 
     }
     catch(error)
@@ -64,6 +65,7 @@ export const deleteUser = async (req,res,next) => {
     }
 
 }
+
 
 export const getUser = async (req,res,next) => {
 

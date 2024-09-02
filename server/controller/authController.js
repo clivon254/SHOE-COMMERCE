@@ -112,7 +112,7 @@ export const google = async (req,res,next) => {
                 profilePicture:req.body.photo
             })
 
-            await new User.save();
+            await newUser.save();
 
             const token = jwt.sign(
                 {id:newUser._id, isAdmin:newUser.isAdmin},
